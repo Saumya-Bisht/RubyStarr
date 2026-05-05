@@ -259,7 +259,7 @@ export class MainScene extends Phaser.Scene {
   private voiceRecognition: SpeechRecognitionLike | null = null;
   private voiceDirection: -1 | 0 | 1 = 0;
   private voiceJumpQueued = false;
-  private voiceMoveUntil = 0;
+  // private voiceMoveUntil = 0;
   private voiceRestartPending = false;
   private shootEvents: Phaser.Time.TimerEvent[] = [];
 
@@ -286,7 +286,7 @@ export class MainScene extends Phaser.Scene {
     this.protectionCooldown = false;
     this.voiceDirection = 0;
     this.voiceJumpQueued = false;
-    this.voiceMoveUntil = 0;
+    // this.voiceMoveUntil = 0;
     this.voiceRestartPending = false;
     this.stopVoiceRecognition();
     this.shootEvents.forEach((event) => event.remove(false));
@@ -408,13 +408,13 @@ export class MainScene extends Phaser.Scene {
     const signX = x + 52;
     const signY = y + 48;
 
-    const post = this.add.rectangle(signX, signY, 10, 44, 0x5f3115).setOrigin(0.5, 1).setDepth(3);
-    const board = this.add
+    this.add.rectangle(signX, signY, 10, 44, 0x5f3115).setOrigin(0.5, 1).setDepth(3);
+    this.add
       .rectangle(signX, signY - 32, 92, 28, 0xf9edc7)
       .setStrokeStyle(3, 0x8a2e63)
       .setOrigin(0.5, 0.5)
       .setDepth(3);
-    const label = this.add
+    this.add
       .text(signX, signY - 32, `Start: ${this.levelConfig.name}`, {
         fontFamily: 'Georgia',
         fontSize: '12px',
@@ -1107,7 +1107,7 @@ export class MainScene extends Phaser.Scene {
   private stopVoiceRecognition() {
     this.voiceDirection = 0;
     this.voiceJumpQueued = false;
-    this.voiceMoveUntil = 0;
+    // this.voiceMoveUntil = 0;
     this.voiceRestartPending = false;
 
     if (this.voiceRecognition) {
