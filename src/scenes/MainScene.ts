@@ -517,8 +517,8 @@ export class MainScene extends Phaser.Scene {
       repeat: -1
     });
 
-    // Deactivate after 4 seconds
-    this.time.delayedCall(4000, () => {
+    // Deactivate after 3 seconds
+    this.time.delayedCall(3000, () => {
       this.isProtected = false;
       this.protectionStatusText.setText('Protection: COOLDOWN');
       this.protectionStatusText.setColor('#ff0000');
